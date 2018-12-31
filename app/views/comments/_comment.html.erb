@@ -1,0 +1,9 @@
+<h2>Comments</h2>
+
+<% @article.comments.each do |comment| %>
+  <div class="comment-box">
+    <p class="comment-title"><%= comment.commenter %>: </p>
+    <p class="comment-body"><%= comment.body %></p>
+    <p><%= link_to 'Delete', [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" }  %></p>
+  </div>
+<% end %>

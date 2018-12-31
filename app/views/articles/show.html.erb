@@ -1,0 +1,24 @@
+<nav class="show-nav-container">
+  <ul class="show-nav">
+    <li><%= link_to 'Home', :root %></li>
+    <li><%= link_to 'Back', :back %></li>
+    <li><%= link_to 'Edit', edit_article_path(@article) %></li>
+  </ul>
+</nav>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<%= render "comments/comment" %>
+
+<h2>Add a comment:</h2>
+
+<%= render "comments/form" %>
+<br>

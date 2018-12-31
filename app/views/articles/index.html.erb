@@ -1,0 +1,18 @@
+
+<h1>Listing articles</h1>
+<br>
+  <% @articles.each do |article| %>
+    <div>
+      <p>
+        <strong>
+          <span><%= article.title.capitalize %></span>:&nbsp;&nbsp;
+        </strong>
+        <%= link_to article.text.truncate(50), article_path(article) %> 
+        <%= link_to 'Edit', edit_article_path(article) %>,&nbsp;
+        <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+      </p>
+    </div><br>
+  <% end %>
+
+  <p><%= link_to "Create New Article", new_article_path %></p>
+  <p><%= link_to "Home", :root %></p>

@@ -1,0 +1,33 @@
+<%= form_with model: @article, local: true do |form| %>
+<% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@article.errors.count, "error") %> prohibited you from performing this action
+    </h2>
+    <ul>
+      <% @article.errors.full_messages.each do |err| %>
+        <li class="error_message"><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :text %>
+  <%= form.text_area :text %>
+</p>
+
+<p>
+  <%= form.label :terms_of_service %>
+  <%= form.check_box :terms_of_service, value: false %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+ <% end %>
